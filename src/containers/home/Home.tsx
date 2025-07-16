@@ -142,16 +142,14 @@ const HomeComponent = () => {
     }
   };
 
-  // Thay thế useEffect hiện tại bằng code này:
-
   useEffect(() => {
     getDataProduct();
-  }, []); // Chỉ chạy 1 lần khi component mount
+  }, []);
 
-  // Thêm useEffect riêng để xử lý filterData khi dataProduct thay đổi
+  // useEffect riêng để xử lý filterData khi dataProduct thay đổi
   useEffect(() => {
     if (dataProduct.length > 0) {
-      // Chỉ set filterData = dataProduct khi chưa có filter nào được áp dụng
+      // Set filterData = dataProduct khi chưa có filter nào được áp dụng
       if (
         catName.length === 0 &&
         (searchProduct === "" || searchProduct === null) &&
@@ -162,7 +160,7 @@ const HomeComponent = () => {
     }
   }, [dataProduct]);
 
-  // Hoặc cách tốt hơn là tạo một function để apply tất cả filters cùng lúc:
+  // function để apply tất cả filters cùng lúc:
   const applyFilters = () => {
     let filtered = [...dataProduct];
 
@@ -194,7 +192,7 @@ const HomeComponent = () => {
     setFilterData(filtered);
   };
 
-  // Thêm useEffect để apply filters khi có thay đổi
+  // UseEffect để apply filters khi có thay đổi
   useEffect(() => {
     if (dataProduct.length > 0) {
       applyFilters();
