@@ -1,29 +1,28 @@
-import React, { useState } from "react";
+import {
+  Facebook,
+  Google,
+  Lock,
+  Person,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
 import {
   Box,
   Button,
+  Divider,
+  IconButton,
+  InputAdornment,
+  Link,
   Paper,
   TextField,
   Typography,
-  InputAdornment,
-  IconButton,
-  Link,
-  Divider,
-  Alert,
 } from "@mui/material";
-import {
-  Visibility,
-  VisibilityOff,
-  Person,
-  Lock,
-  Google,
-  Facebook,
-} from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import type { UserType } from "../../types/UserType";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
+import type { UserType } from "../../types/UserType";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
